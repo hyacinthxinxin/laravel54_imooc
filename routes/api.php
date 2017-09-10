@@ -13,6 +13,17 @@ use Illuminate\Http\Request;
 |
 */
 
-Route::middleware('auth:api')->get('/user', function (Request $request) {
-    return $request->user();
+// 接管路由
+$api = app('Dingo\Api\Routing\Router');
+// 配置api版本和路由
+$api->version('v1', ['namespace' => 'App\Http\Api\V1\Controllers'], function ($api) {
+    // 授权组
+    $api->group(['prefix' => 'auth'], function ($api) {
+        $api->post('register', ['as' => 'auth.register', 'uses' => 'AuthenticateController@register']);
+    });
+    // 文章组
+    $api->group(['prefix' => 'posts'], function ($api) {
+        $api->get('/', ['as' => 'post.index', 'uses' => 'PostController@index']);
+    });
 });
+app('Dingo\Api\Routing\UrlGenerator')->version('v1');

@@ -1,6 +1,4 @@
 <div id="sidebar" class="col-xs-12 col-sm-4 col-md-4 col-lg-4">
-
-
     <aside id="widget-welcome" class="widget panel panel-default">
         <div class="panel-heading">
             欢迎！
