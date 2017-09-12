@@ -8,8 +8,6 @@
     <meta name="description" content="">
     <meta name="author" content="">
     <meta name="csrf-token" content="{{ csrf_token() }}">
-
-
     <title>laravel for blog</title>
 
     <!-- Bootstrap core CSS -->
@@ -50,7 +48,7 @@
 <script src="https://cdn.bootcss.com/jquery/1.12.4/jquery.min.js"></script>
 <script src="https://cdn.bootcss.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
 <script type="text/javascript" src="/js/wangEditor.min.js"></script>
-<script src="/js/ylaravel.js"></script>
+<script src="/js/ylaravel.js" type="text/javascript"></script>
 
 </body>
 </html>
