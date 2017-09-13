@@ -30,17 +30,12 @@
 <body>
 
 @include("layout.nav")
-
 <div class="container">
-
     <div class="row">
         @yield('content')
         @include("layout.sidebar")
     </div>
-
-
 </div>
-
 @include("layout.footer")
 <!-- Bootstrap core JavaScript
 ================================================== -->

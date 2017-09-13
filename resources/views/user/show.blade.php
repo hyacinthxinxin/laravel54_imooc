@@ -44,7 +44,6 @@
                         @include('user.badges.like', ['target_user'=>$suser])
                     @endforeach
                 </div>
-                <!-- /.tab-pane -->
                 <div class="tab-pane" id="tab_3">
                     @foreach($fusers as $fuser)
                         <div class="blog-post" style="margin-top: 30px">
@@ -55,12 +54,8 @@
                         </div>
                     @endforeach
                 </div>
-                <!-- /.tab-pane -->
             </div>
-            <!-- /.tab-content -->
         </div>
-
-
     </div>
 @endsection
 
