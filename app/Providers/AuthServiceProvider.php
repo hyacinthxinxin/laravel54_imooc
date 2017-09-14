@@ -2,6 +2,8 @@
 
 namespace App\Providers;
 
+use App\AdminPermission;
+use App\AdminUser;
 use Illuminate\Support\Facades\Gate;
 use Illuminate\Foundation\Support\Providers\AuthServiceProvider as ServiceProvider;
 
@@ -26,6 +28,11 @@ class AuthServiceProvider extends ServiceProvider
     {
         $this->registerPolicies();
 
-        //
+        $permissions = AdminPermission::all();
+        foreach ($permissions as $permission) {
+            Gate::define($permission->name, function (AdminUser $user) use ($permission) {
+                return $user->hasPermission($permission);
+            });
+        }
     }
 }

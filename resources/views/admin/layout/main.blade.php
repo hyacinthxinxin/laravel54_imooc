@@ -15,8 +15,8 @@
 </head>
 <body class="hold-transition skin-blue sidebar-mini">
 <div class="wrapper">
-@include('admin.layout.header')
-@include('admin.layout.sidebar')
+    @include('admin.layout.header')
+    @include('admin.layout.sidebar')
     <div class="content-wrapper">
         @yield('content')
     </div>
@@ -25,6 +25,7 @@
 </div>
 <!-- ./wrapper -->
 <script src="{{ asset ("/assets/js/app.js") }}" type="text/javascript"></script>
+<script src='/js/admin.js?v=' .time()></script>
 @yield('script')
 </body>
 </html>

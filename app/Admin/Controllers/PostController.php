@@ -7,7 +7,6 @@ use App\Post;
 
 class PostController extends Controller
 {
-
     public function index()
     {
         $posts = Post::withOutGlobalScope('available')->where('status', 0)

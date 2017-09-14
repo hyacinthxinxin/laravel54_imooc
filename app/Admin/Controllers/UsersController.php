@@ -8,6 +8,7 @@
 
 namespace App\Admin\Controllers;
 
+use App\AdminRole;
 use App\AdminUser;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Redirect;
@@ -34,10 +35,35 @@ class UsersController extends Controller
         ]);
 
         $name = request('name');
-        $password = bcrypt(request('name'));
+        $password = bcrypt(request('password'));
 
         AdminUser::create(compact('name', 'password'));
         // 渲染
         return redirect('/admin/users');
+    }
+
+    public function role(AdminUser $user)
+    {
+        $roles = AdminRole::all();
+        $myRoles = $user->roles;
+        return view('admin.user.role', compact('roles', 'myRoles', 'user'));
+    }
+
+    public function storeRole(AdminUser $user)
+    {
+        $this->validate(request(), [
+            'roles' => 'required|array',
+        ]);
+        $roles = AdminRole::findMany(request('roles'));
+        $myRoles = $user->roles;
+        $addRoles = $roles->diff($myRoles);
+        foreach ($addRoles as $role){
+            $user->assignRole($role);
+        }
+        $deleteRoles = $myRoles->diff($roles);
+        foreach ($deleteRoles as $role){
+            $user->deleteRole($role);
+        }
+        return Redirect::back();
     }
 }

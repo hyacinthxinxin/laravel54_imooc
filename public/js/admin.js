@@ -22,3 +22,27 @@ $('.post-audit').click(function (event) {
         }
     });
 });
+
+$('.resource-delete').click(function (event) {
+    if (confirm('确定执行删除操作么？') == false) {
+        return;
+    }
+    target = $(event.target);
+    event.preventDefault();
+
+    var delete_url = target.attr('delete-url');
+    $.ajax({
+        url: delete_url,
+        method: "POST",
+        data: {'_method': 'DELETE'},
+        dataType: "json",
+        success: function (data) {
+            if (data.error != 0) {
+                alert(data.msg);
+                return;
+            }
+            window.location.reload();
+            // target.parent().parent().remove();
+        }
+    });
+});

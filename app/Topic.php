@@ -2,9 +2,8 @@
 
 namespace App;
 
-use Illuminate\Database\Eloquent\Model;
 
-class Topic extends Model
+class Topic extends BaseModel
 {
     public function posts()
     {
