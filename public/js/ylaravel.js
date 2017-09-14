@@ -8,7 +8,6 @@ $('.like-button').click(function (event) {
     var target = $(event.target);
     var current_like = target.attr('like-value');
     var user_id = target.attr("like-user");
-    console.log(current_like);
 
     if (current_like == 1) {
         //取消关注

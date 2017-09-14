@@ -12,7 +12,6 @@ class LoginController extends Controller
     public function index()
     {
         return view('login.index');
-
     }
 
     public function login()
@@ -31,7 +30,6 @@ class LoginController extends Controller
             return redirect('/posts');
 
         }
-
         // 渲染
         return Redirect::back()->withErrors('邮箱密码不匹配');
     }
@@ -40,7 +38,6 @@ class LoginController extends Controller
     {
         Auth::logout();
         return redirect('/login');
-
     }
 
 }

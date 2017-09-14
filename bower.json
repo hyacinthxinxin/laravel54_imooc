@@ -1,0 +1,21 @@
+{
+  "name": "laravel54",
+  "description": "我的测试",
+  "main": "admin",
+  "authors": [
+    "hyacinthxinxin <fanxin0202@163.com>"
+  ],
+  "license": "MIT",
+  "keywords": [
+    "ma"
+  ],
+  "homepage": "https://github.com/hyacinthxinxin/laravel54_imooc",
+  "ignore": [
+    "**/.*",
+    "node_modules",
+    "bower_components",
+    "vendor/bower",
+    "test",
+    "tests"
+  ]
+}

@@ -13,7 +13,6 @@
     <!-- Bootstrap core CSS -->
     <link href="https://cdn.bootcss.com/bootstrap/3.3.7/css/bootstrap.min.css" rel="stylesheet">
 
-
     <!-- Custom styles for this template -->
     <link href="/css/blog.css" rel="stylesheet">
     <link rel="stylesheet" type="text/css" href="/css/wangEditor.min.css">
