@@ -2,10 +2,7 @@
 
 use Illuminate\Support\Facades\Route;
 
-// 首页
-Route::get('/', function () {
-    return view('home');
-});
+Route::get('/', '\App\Http\Controllers\LoginController@welcome');
 // 用户模块
 // 注册页面
 Route::get('/register', '\App\Http\Controllers\RegisterController@index');

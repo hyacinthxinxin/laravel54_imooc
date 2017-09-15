@@ -3,6 +3,8 @@
 namespace App\Providers;
 
 use App\Topic;
+use Illuminate\Support\Facades\DB;
+use Illuminate\Support\Facades\Log;
 use Illuminate\Support\ServiceProvider;
 use Illuminate\View\View;
 
@@ -17,11 +19,19 @@ class AppServiceProvider extends ServiceProvider
     {
         \Carbon\Carbon::setLocale('zh');
 
-        \View::composer('layout.sidebar', function ($view){
-           $topics = Topic::all();
-           $view->with('topics', $topics);
+        \View::composer('layout.sidebar', function ($view) {
+            $topics = Topic::all();
+            $view->with('topics', $topics);
         });
-
+        DB::listen(function ($query) {
+            $sql = $query->sql;
+            $bindings = $query->bindings;
+            $time = $query->time;
+            // 只打印查询大于10ms的查询
+            if ($time > 10) {
+                Log::debug(var_export(compact('sql', 'bindings', 'time'), true));
+            }
+        });
     }
 
     /**

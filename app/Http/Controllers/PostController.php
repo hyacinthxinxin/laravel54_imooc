@@ -12,7 +12,10 @@ class PostController extends Controller
 {
     public function index()
     {
-        $posts = Post::orderBy('created_at', 'desc')->withCount(['comments', 'zans'])->paginate(6);
+        $posts = Post::orderBy('created_at', 'desc')
+            ->withCount(['comments', 'zans'])
+            ->paginate(6);
+        $posts->load('user');
         return view('post/index', compact('posts'));
     }
 
@@ -114,7 +117,8 @@ class PostController extends Controller
         return back();
     }
 
-    public function search(){
+    public function search()
+    {
         // 验证
         $this->validate(request(), [
             'query' => 'required',
