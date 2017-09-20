@@ -22,10 +22,10 @@ class AppServiceProvider extends ServiceProvider
 
         \Carbon\Carbon::setLocale('zh');
 
-//        \View::composer('layout.sidebar', function ($view) {
-//            $topics = Topic::all();
-//            $view->with('topics', $topics);
-//        });
+        \View::composer('layout.sidebar', function ($view) {
+            $topics = Topic::all();
+            $view->with('topics', $topics);
+        });
 
 //        DB::listen(function ($query) {
 //            $sql = $query->sql;
