@@ -40,7 +40,6 @@ $('.like-button').click(function (event) {
         })
     }
 });
-
 var editor = new wangEditor('content');
 
 editor.config.uploadImgUrl = '/posts/image/upload';
