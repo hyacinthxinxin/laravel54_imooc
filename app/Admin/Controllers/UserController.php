@@ -13,7 +13,7 @@ use App\AdminUser;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Redirect;
 
-class UsersController extends Controller
+class UserController extends Controller
 {
     public function index()
     {

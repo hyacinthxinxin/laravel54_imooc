@@ -97,5 +97,5 @@ elixir(function (mix) {
     );
 
     // 运行单元测试
-    mix.phpUnit();
+    // mix.phpUnit();
 });

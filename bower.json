@@ -17,5 +17,10 @@
     "vendor/bower",
     "test",
     "tests"
-  ]
+  ],
+  "devDependencies": {
+    "AdminLTE": "admin-lte#^2.3.11",
+    "font-awesome": "fontawesome#^4.7.0",
+    "Ionicons": "ionicons#^2.0.1"
+  }
 }
