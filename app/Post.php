@@ -51,7 +51,6 @@ class Post extends BaseModel
         return $this->hasMany(Zan::class);
     }
 
-
     // 属于某一个作者的文章
     public function scopeAuthorBy(Builder $query, $user_id)
     {

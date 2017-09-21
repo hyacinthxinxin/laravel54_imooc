@@ -14,7 +14,7 @@ class AdminUser extends Authenticatable
     public function roles()
     {
         return $this
-            ->belongsToMany(AdminRole::class, 'admin_role_user', 'user_id', 'role_id')
+            ->belongsToMany(AdminRole::class, 'admin_role_users', 'user_id', 'role_id')
             ->withPivot(['user_id', 'role_id']);
     }
 

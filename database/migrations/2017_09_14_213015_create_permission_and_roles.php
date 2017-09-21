@@ -28,7 +28,7 @@ class CreatePermissionAndRoles extends Migration
             $table->integer('permission_id');
         });
 
-        Schema::create('admin_role_user', function (Blueprint $table) {
+        Schema::create('admin_role_users', function (Blueprint $table) {
             $table->increments('id');
             $table->integer('role_id');
             $table->integer('user_id');
@@ -40,6 +40,6 @@ class CreatePermissionAndRoles extends Migration
         Schema::dropIfExists('admin_roles');
         Schema::dropIfExists('admin_permissions');
         Schema::dropIfExists('admin_permission_roles');
-        Schema::dropIfExists('admin_role_user');
+        Schema::dropIfExists('admin_role_users');
     }
 }

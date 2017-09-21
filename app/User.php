@@ -57,7 +57,7 @@ class User extends Authenticatable
 
     public function notices()
     {
-        return $this->belongsToMany(Notice::class, 'user_notice', 'user_id', 'notice_id')
+        return $this->belongsToMany(Notice::class, 'user_notices', 'user_id', 'notice_id')
             ->withPivot('user_id', 'notice_id');
     }
 
