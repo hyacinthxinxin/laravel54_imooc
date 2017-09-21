@@ -38,10 +38,17 @@
                     </a>
                 </li>
             @endcan
-            @can('dingdong')
+            @can('room')
                 <li class="active treeview">
-                    <a href="/admin/notices">
-                        <i class="fa fa-dashboard"></i> <span>叮咚音箱管理</span>
+                    <a href="/admin/rooms">
+                        <i class="fa fa-dashboard"></i> <span>房间管理</span>
+                    </a>
+                </li>
+            @endcan
+            @can('device')
+                <li class="active treeview">
+                    <a href="/admin/devices">
+                        <i class="fa fa-dashboard"></i> <span>设备管理</span>
                     </a>
                 </li>
             @endcan

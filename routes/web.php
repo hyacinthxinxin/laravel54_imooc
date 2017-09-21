@@ -14,11 +14,11 @@ Route::group(['prefix' => 'admin'], function () {
 
         Route::group(['middleware' => 'can:system'], function () {
             // 管理人员模块
-            Route::get('/users', '\App\Admin\Controllers\UsersController@index');
-            Route::get('/users/create', '\App\Admin\Controllers\UsersController@create');
-            Route::post('/users/store', '\App\Admin\Controllers\UsersController@store');
-            Route::get('/users/{user}/role', '\App\Admin\Controllers\UsersController@role');
-            Route::post('/users/{user}/role', '\App\Admin\Controllers\UsersController@storeRole');
+            Route::get('/users', '\App\Admin\Controllers\UserController@index');
+            Route::get('/users/create', '\App\Admin\Controllers\UserController@create');
+            Route::post('/users/store', '\App\Admin\Controllers\UserController@store');
+            Route::get('/users/{user}/role', '\App\Admin\Controllers\UserController@role');
+            Route::post('/users/{user}/role', '\App\Admin\Controllers\UserController@storeRole');
 
             Route::get('/roles', '\App\Admin\Controllers\RoleController@index');
             Route::get('/roles/create', '\App\Admin\Controllers\RoleController@create');
@@ -42,6 +42,14 @@ Route::group(['prefix' => 'admin'], function () {
 
         Route::group(['middleware' => 'can:notice'], function () {
             Route::resource('notices', '\App\Admin\Controllers\NoticeController', ['only' => ['index', 'create', 'store']]);
+        });
+
+        Route::group(['middleware' => 'can:room'], function () {
+            Route::resource('rooms', '\App\Admin\Controllers\RoomController', ['only' => ['index', 'create', 'store']]);
+        });
+
+        Route::group(['middleware' => 'can:device'], function () {
+            Route::resource('devices', '\App\Admin\Controllers\DeviceController', ['only' => ['index', 'create', 'store']]);
         });
 
     });

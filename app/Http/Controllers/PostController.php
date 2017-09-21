@@ -42,8 +42,7 @@ class PostController extends Controller
         // 逻辑
         $user_id = Auth::id();
         $params = array_merge(request(['title', 'content']), compact('user_id'));
-        $post = Post::create($params);
-
+        Post::create($params);
         // 渲染
         return redirect('/posts');
     }
